@@ -1,4 +1,4 @@
-package codingtest;
+package codingtest.q03;
 
 public class q0301 {
 

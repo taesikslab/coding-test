@@ -1,4 +1,4 @@
-package codingtest.reference;
+package codingtest.q05;
 
 import java.util.*;
 

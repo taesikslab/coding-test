@@ -1,4 +1,4 @@
-package codingtest;
+package codingtest.q04;
 
 import java.util.Scanner;
 
