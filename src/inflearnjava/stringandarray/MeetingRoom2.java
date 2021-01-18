@@ -2,15 +2,10 @@ package inflearnjava.stringandarray;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
-public class MeetingRooms {
-
-    static Comparator<Interval> Comp = new Comparator<Interval>() {
-        @Override
-        public int compare(Interval o1, Interval o2) {
-            return o1.start - o2.start;
-        }
-    };
+public class MeetingRoom2 {
 
     public static void main(String[] args) {
         Interval i1 = new Interval(0, 30);
@@ -21,17 +16,23 @@ public class MeetingRooms {
         System.out.println(solve(intervals));
     }
 
-    public static boolean solve(Interval[] intervals) {
-        if (intervals == null) return false;
-        Arrays.sort(intervals, Comp);
-        print(intervals);
+    public static int solve(Interval[] intervals) {
+        if (intervals == null || intervals.length == 0) return 0;
 
-        for (int i = 1; i < intervals.length; i++) {
-            if (intervals[i - 1].end > intervals[i].start) {
-                return false;
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a.start));
+
+        Queue<Interval> minHeap = new PriorityQueue<>(intervals.length, Comparator.comparingInt(a -> a.end));
+        int max = 0;
+
+        for (Interval interval : intervals) {
+            while (!minHeap.isEmpty() && minHeap.peek().end <= interval.start) {
+                minHeap.poll();
             }
+            minHeap.offer(interval);
+            max = Math.max(max, minHeap.size());
         }
-        return true;
+
+        return max;
     }
 
     public static void print(Interval[] intervals) {
