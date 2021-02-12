@@ -20,6 +20,6 @@ public class LicenseKeyFormatting {
             sb.insert(length - i, '-');
         }
 
-        return newStr;
+        return sb.toString();
     }
 }
