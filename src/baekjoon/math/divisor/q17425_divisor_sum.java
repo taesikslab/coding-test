@@ -1,4 +1,4 @@
-package baekjoon.math;
+package baekjoon.math.divisor;
 
 import java.io.*;
 
