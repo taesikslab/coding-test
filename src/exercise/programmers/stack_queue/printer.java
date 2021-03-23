@@ -1,6 +1,6 @@
 package exercise.programmers.stack_queue;
 
-import java.util.*;
+import java.util.LinkedList;
 
 public class printer {
 
@@ -10,12 +10,44 @@ public class printer {
     }
 
     public static int solution(int[] priorities, int location) {
-        int[] result = new int[priorities.length];
-        Queue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>();
+        LinkedList<Document> documents = new LinkedList<>();
+        int docNum = 0;
         for (int i = 0; i < priorities.length; i++) {
-            queue.offer(new AbstractMap.SimpleEntry<>(i, priorities[i]));
+            documents.offer(new Document(docNum, priorities[i]));
+            docNum++;
         }
 
-        return result[location];
+        int order = 0;
+        while (!documents.isEmpty()) {
+            Document doc = documents.poll();
+            if (hasHighestPriority(doc, documents)) {
+                order++;
+                if (doc.name == location) break;
+            } else {
+                documents.offer(doc);
+            }
+        }
+
+        return order;
+    }
+
+    private static boolean hasHighestPriority(Document doc, LinkedList<Document> documents) {
+        for (int i = 0; i < documents.size(); i++) {
+            if (doc.priority < documents.get(i).priority) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static class Document {
+
+        public int name;
+        public int priority;
+
+        public Document(int name, int priority) {
+            this.name = name;
+            this.priority = priority;
+        }
     }
 }
