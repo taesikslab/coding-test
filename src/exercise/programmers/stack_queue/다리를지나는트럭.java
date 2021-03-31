@@ -6,34 +6,43 @@ import java.util.Queue;
 public class 다리를지나는트럭 {
 
     public static void main(String[] args) {
-        System.out.println(solution(2, 100, new int[]{7, 4, 5, 6}));
+        System.out.println(solution(5, 5, new int[]{2, 2, 2, 2, 1, 1, 1, 1, 1})); // 19
+        System.out.println(solution(2, 10, new int[]{7, 4, 5, 6}));
+        System.out.println(solution(100, 100, new int[]{10, 10, 10, 10, 10, 10, 10, 10, 10, 10}));
         System.out.println(solution(100, 100, new int[]{10}));
     }
 
     public static int solution(int bridge_length, int weight, int[] truck_weights) {
-        int answer = 0;
-        Queue<Integer> waiting = new LinkedList<>();
-        Queue<Integer> going = new LinkedList<>();
-        Queue<Integer> done = new LinkedList<>();
+        Queue<Integer> trucks = new LinkedList<>();
 
-        for (int truck_weight : truck_weights) {
-            waiting.offer(truck_weight);
+        for (int i = 0; i < truck_weights.length; i++) {
+            trucks.offer(truck_weights[i]);
         }
 
-        while (!waiting.isEmpty() && !going.isEmpty()) {
-            Integer cur = waiting.peek();
-            int capacity = 0;
-            for (int i = 0; i < bridge_length; i++) {
-                if (capacity > weight) {
-                    answer++;
-                    continue;
+        int end = bridge_length;
+        int totalWeight = 0;
+        Queue<Integer> moving = new LinkedList<>();
+        while (!trucks.isEmpty()) {
+            for (int i = 1; i <= bridge_length; i++) {
+                if (moving.size() >= bridge_length) {
+                    int arrive = moving.poll();
+                    totalWeight -= arrive;
                 }
-                going.offer(cur);
+                if (trucks.isEmpty()) {
+                    break;
+                }
+
+                int nextTruckWeight = trucks.peek();
+                if (totalWeight + nextTruckWeight > weight) {
+                    moving.offer(0);
+                } else {
+                    totalWeight += nextTruckWeight;
+                    moving.offer(trucks.poll());
+                }
+                end++;
             }
-            answer++;
         }
 
-
-        return answer;
+        return end;
     }
 }
