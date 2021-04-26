@@ -1,4 +1,4 @@
-package codinginterview.array_and_string;
+package codinginterview.ch01_array_and_string;
 
 public class HashTableChaining<Key, Value> {
 

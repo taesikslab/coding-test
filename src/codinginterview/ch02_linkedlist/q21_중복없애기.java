@@ -1,4 +1,4 @@
-package codinginterview.linkedlist;
+package codinginterview.ch02_linkedlist;
 
 import java.util.HashSet;
 

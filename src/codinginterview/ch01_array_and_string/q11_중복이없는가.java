@@ -1,4 +1,4 @@
-package codinginterview.array_and_string;
+package codinginterview.ch01_array_and_string;
 
 import java.util.HashSet;
 import java.util.Set;
