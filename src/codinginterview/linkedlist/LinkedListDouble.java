@@ -1,4 +1,4 @@
-package codinginterview.arrayandstring;
+package codinginterview.linkedlist;
 
 import java.util.NoSuchElementException;
 
