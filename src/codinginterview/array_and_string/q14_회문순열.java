@@ -1,4 +1,4 @@
-package codinginterview.arrayandstring;
+package codinginterview.array_and_string;
 
 public class q14_회문순열 {
 

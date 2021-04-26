@@ -1,4 +1,4 @@
-package codinginterview.arrayandstring;
+package codinginterview.array_and_string;
 
 public class q16_문자열압축 {
 

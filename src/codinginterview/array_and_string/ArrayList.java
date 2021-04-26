@@ -1,4 +1,4 @@
-package codinginterview.arrayandstring;
+package codinginterview.array_and_string;
 
 import java.util.NoSuchElementException;
 
