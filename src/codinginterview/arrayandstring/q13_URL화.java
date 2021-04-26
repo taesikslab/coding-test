@@ -1,6 +1,6 @@
 package codinginterview.arrayandstring;
 
-public class q13 {
+public class q13_URL화 {
 
     public static void main(String[] args) {
         System.out.println(urlify("Mr John Smith"));

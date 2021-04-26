@@ -2,7 +2,7 @@ package codinginterview.arrayandstring;
 
 import java.util.Arrays;
 
-public class q12 {
+public class q12_순열확인 {
 
     public static void main(String[] args) {
 

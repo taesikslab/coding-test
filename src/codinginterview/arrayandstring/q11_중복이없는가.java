@@ -3,9 +3,9 @@ package codinginterview.arrayandstring;
 import java.util.HashSet;
 import java.util.Set;
 
-public class q11 {
+public class q11_중복이없는가 {
     public static void main(String[] args) {
-        q11 q = new q11();
+        q11_중복이없는가 q = new q11_중복이없는가();
         System.out.println(q.checkDuplicates(""));
         System.out.println(q.checkDuplicates("aa"));
         System.out.println(q.checkDuplicates("abc"));
