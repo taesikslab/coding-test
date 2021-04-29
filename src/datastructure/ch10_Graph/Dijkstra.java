@@ -10,5 +10,7 @@ public class Dijkstra {
                 if(D[minVertex] + 간선 (minVertex, w)의 가중치 < D[w])
                     D[w] = D[minVertex] + 간선 (minVertex, w)의 가중치 // 간선완화
                     previous[w] = minVertex
+
+    https://gaybee.tistory.com/34 참고
     */
 }

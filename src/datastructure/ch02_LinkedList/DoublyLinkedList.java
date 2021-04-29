@@ -38,12 +38,12 @@ public class DoublyLinkedList<T> {
             pointer = pointer.next;
         }
 
-        Node temp = pointer.next;
-        if (temp == null) {
+        Node nextNode = pointer.next;
+        if (nextNode == null) {
             prevNode.next = null;
         } else {
-            temp.prev = prevNode;
-            prevNode.next = temp;
+            nextNode.prev = prevNode;
+            prevNode.next = nextNode;
         }
         pointer = null;
     }
